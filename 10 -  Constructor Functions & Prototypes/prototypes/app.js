@@ -23,7 +23,8 @@ function Person() {
     this.age = 30;
     this.name = "Max";
     this.greet = function() {
-     console.log("Hi , I am" + this.name + "and I am" + this.age + "years old")
+     console.log(
+        "Hi , I am" + this.name + "and I am" + this.age + "years old")
     };
 };
 
@@ -32,6 +33,10 @@ function Person() {
 //         console.log(this.age);
 //     }
 // }
+
+Person.discribe = function() {
+    console.log("Creating Persons....");
+}
 
 Person.prototype.printAge = function() {
     console.log(this.age);
@@ -43,6 +48,8 @@ console.dir(Person);
 const person = new Person();
 person.greet(); 
 person.printAge();
-console.log(person.__proto__);
+console.log(person);
+console.log(person.toString());
+
 const p2 = new person.__proto__.constructor();
 console.log(p2);
