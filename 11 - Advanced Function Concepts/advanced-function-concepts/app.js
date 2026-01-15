@@ -39,7 +39,6 @@ printHobbies(hobbies);
 let multiplier = 1.1;
 
 // Factory Functions
-
 function createTaxCalculator(tax) {
     function calculateTax(amount) {
         console.log(multiplier);
@@ -53,7 +52,19 @@ function createTaxCalculator(tax) {
 const calculateVatAmount = createTaxCalculator(0.19);
 const calculateIncomeTaxAmount = createTaxCalculator(0.25);
 
-multiplier = 1.2;
+// multiplier = 1.2;
 
 console.log(calculateVatAmount(100));
 console.log(calculateVatAmount(200));
+
+let username = "Max";
+
+
+function greetUser() {
+    let name = "Anna";
+    console.log("Hi " , name);
+}
+
+let name = "Hisham";
+
+greetUser();
