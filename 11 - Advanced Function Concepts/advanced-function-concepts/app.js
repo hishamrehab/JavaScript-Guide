@@ -68,3 +68,29 @@ function greetUser() {
 let name = "Hisham";
 
 greetUser();
+
+// Recursion
+
+// function powerOf(x, n) {
+//   let result = 1;
+  
+//   for(let i = 0 ; i< n ; i++) {
+//     result *= x
+//   }
+
+//   console.log("result" , result);
+//   return result;
+// }
+
+// Recurtion
+function powerOf(x, n) {
+//     if(n === 1) {
+//         return x;
+//     }
+//  return x * powerOf(x , n- 1);
+
+return n === 1 ? x : x * powerOf(x , n- 1);
+}
+
+
+console.log(powerOf(2, 3));
