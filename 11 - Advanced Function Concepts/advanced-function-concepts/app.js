@@ -84,13 +84,50 @@ greetUser();
 
 // Recurtion
 function powerOf(x, n) {
-//     if(n === 1) {
-//         return x;
-//     }
-//  return x * powerOf(x , n- 1);
+
+    //     if(n === 1) {
+    //         return x;
+    //     }
+    //  return x * powerOf(x , n- 1);
 
 return n === 1 ? x : x * powerOf(x , n- 1);
 }
 
 
 console.log(powerOf(2, 3));
+
+const mySelf = {
+    name : "Max",
+    friends: [
+        {
+            name : "Manuel",
+          friends: [
+              {
+                name : "Chris"
+            }
+          ]
+        },
+        {
+            name: "Julia"
+        }
+    ]
+};
+
+
+
+function printFriendsNames(person) {
+ const collectedNames = [];
+
+ if(!person.friends) {
+    return [];
+ }
+
+ for (const friend of person.friends) {
+  printFriendsNames(friend);
+  collectedNames.push(...getFriendsNames(friend));
+ }
+
+ return collectedNames;
+}
+
+console.log(printFriendsNames(mySelf));
