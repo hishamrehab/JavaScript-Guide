@@ -33,7 +33,8 @@ async function trackUserHandler() {
   try {
    posData = await getPostion();
    timerData = await setTimer(2000);
-  console.log(timerData , posData);
+   console.log(timerData , posData);
+   getPostion();
   }catch(error) {
     console.log(error);
   }
@@ -58,8 +59,31 @@ async function trackUserHandler() {
   //  console.log('Getting position...');
 }
 
-button.addEventListener('click', trackUserHandler);
+await setTimer(1000)
 
+button.addEventListener('click', trackUserHandler);
+Promise.race([
+  getPostion(),
+  setTimer(1000)
+]).then(result => {
+  console.log(result);
+})
+
+Promise.all([
+  getPostion(),
+  setTimer(1000)
+]).then(result => {
+  console.log(result);
+});
+
+Promise.allSettled([
+  getPostion(),
+  setTimer(1000)
+]).then(result => {
+  console.log(result);
+});
+
+ 
 // let result = 0;
 // for (i = 0 ; i < 1000000; i++) {
 //   result += i;
