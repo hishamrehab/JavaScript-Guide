@@ -15,7 +15,7 @@ const getPostion = (opts) => {
 
 
 
-const setTimer = (duration) => {
+const setTimer =  (duration) => {
   const promise = new Promise((resolve , reject) => {
   setTimeout( () => {
     resolve("Done!");
@@ -26,27 +26,36 @@ return promise;
 }
 
 
-function trackUserHandler() {
-  let positionData;
-   getPostion()
-   .then(
-    posData => {
-    positionData = posData;
-    console.log(positionData);
-   return setTimer(2000)
-   })
-   .then(data => {
-    console.log(data);
-   })
-   .catch(
-     error => {
-    console.log(error , positionData);
-    return "Something went wrong!..."
-   })
-    setTimer(2000).then(result => {
-      console.log(result);
-    })
-   console.log('Getting position...');
+async function trackUserHandler() {
+  // let positionData;
+  let posData;
+  let timerData;
+  try {
+   posData = await getPostion();
+   timerData = await setTimer(2000);
+  console.log(timerData , posData);
+  }catch(error) {
+    console.log(error);
+  }
+
+  //  .then(
+  //   posData => {
+  //   positionData = posData;
+  //   console.log(positionData);
+  //  return setTimer(2000);
+  //  })
+  //  .then(data => {
+  //   console.log(data);
+  //  })
+  //  .catch(
+  //    error => {
+  //   console.log(error , positionData);
+  //   return "Something went wrong!..."
+  //  })
+  //   setTimer(2000).then(result => {
+  //     console.log(result);
+  //   })
+  //  console.log('Getting position...');
 }
 
 button.addEventListener('click', trackUserHandler);
