@@ -43,5 +43,32 @@ const me = Object.create(person);
 me.talk();
 
 
+// Inheritance using pure objects with Object.setPrototypeOf
+const person = {}
+person.__proto__.talk = function () {
+    return 'Talking';
+}
+const me = {};
+Object.setPrototypeOf(me, person);
+me.talk(); // Talking
 
 
+// Extending a Class using 'extends'
+class Person {
+    talk() {
+        return "Talking";
+    }
+}
+
+class SuperHuman extends Person {
+    fly() {
+        return "Flying";
+    }
+}
+
+const me = new Person();
+console.log(me.talk()); // Talking
+
+const you = new SuperHuman();
+console.log(you.fly()); // Flying
+console.log(you.talk()); // Talking
