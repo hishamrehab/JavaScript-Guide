@@ -32,7 +32,16 @@ me.talk(); // Talking
 you.talk(); // Talking
 
 
-
-// -----------------------------------------
 // Inheritance using pure objects with Object.create
+const person = {
+    talk() {
+        return "Talking";
+    }
+}
+
+const me = Object.create(person);
+me.talk();
+
+
+
 
