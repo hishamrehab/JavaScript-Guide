@@ -26,3 +26,20 @@ class SuperHuman extends Human {
 const ben = new SuperHuman();
 
 ben.fly();
+
+
+// Prototype
+
+function Dude(name) {
+    this.name = name;
+}
+
+const me = new Dude("Sina");
+
+me.prototype // undefined
+Dude.prototype // constructor
+me.__proto__ // constructor
+
+me.__proto__ === Dude.prototype // true
+
+
